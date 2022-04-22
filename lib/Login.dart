@@ -16,7 +16,7 @@ class Login extends StatelessWidget {
             width: mediaQueryWidth * 10,
             height: mediaQueryHeight * 0.3,
             child: const Image(
-                fit: BoxFit.cover, image: AssetImage("images/Logo.png")),
+                fit: BoxFit.cover, image: AssetImage("images/Logo1.png")),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
