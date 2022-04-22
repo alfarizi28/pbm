@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+class Register extends StatelessWidget {
+  const Register({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class Login extends StatelessWidget {
         children: [
           Container(
             width: mediaQueryWidth * 10,
-            height: mediaQueryHeight * 0.3,
+            height: mediaQueryHeight * 0.25,
             color: Colors.amber,
             // child: const Image(
             //     fit: BoxFit.cover, image: AssetImage("images/Logo.png")),
@@ -26,7 +26,7 @@ class Login extends StatelessWidget {
               height: mediaQueryHeight * 0.03,
               // color: Colors.amber,
               child: const Text(
-                "LOG IN",
+                "REGISTRASI",
                 textAlign: TextAlign.left,
                 style: TextStyle(
                     color: Colors.red,
@@ -37,14 +37,45 @@ class Login extends StatelessWidget {
           ),
           Container(
             width: mediaQueryWidth * 0.8,
-            height: mediaQueryHeight * 0.06,
+            height: mediaQueryHeight * 0.05,
             child: const Text(
-                "Selamat datang kembali, silahkan isi username dan password dengan benar",
+                "Selamat datang, silahkan isi dan lengkapi persyaratan dibawah ini",
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   color: Colors.grey,
                   fontSize: 14,
                 )),
+          ),
+          Container(
+            width: mediaQueryWidth * 0.8,
+            height: mediaQueryHeight * 0.03,
+            child: const Text("Nama Lengkap",
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 14,
+                )),
+          ),
+          Container(
+            width: mediaQueryWidth * 0.8,
+            height: mediaQueryHeight * 0.06,
+            // color: Colors.amber,
+            child: TextFormField(
+              decoration: const InputDecoration(
+                  hintText: "Nama Lengkap",
+                  prefixIcon: Icon(
+                    Icons.person,
+                    size: 28,
+                    color: Colors.black,
+                  ),
+                  border: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black))),
+            ),
+          ),
+          Container(
+            height: mediaQueryHeight * 0.02,
+            color: Color(0x00ffffff),
           ),
           Container(
             width: mediaQueryWidth * 0.8,
@@ -80,7 +111,70 @@ class Login extends StatelessWidget {
           Container(
             width: mediaQueryWidth * 0.8,
             height: mediaQueryHeight * 0.03,
+            child: const Text("No Telepon",
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 14,
+                )),
+          ),
+          Container(
+            width: mediaQueryWidth * 0.8,
+            height: mediaQueryHeight * 0.06,
+            // color: Colors.amber,
+            child: TextFormField(
+              decoration: const InputDecoration(
+                  hintText: "No Telepon",
+                  prefixIcon: Icon(
+                    Icons.call,
+                    size: 28,
+                    color: Colors.black,
+                  ),
+                  border: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black))),
+            ),
+          ),
+          Container(
+            height: mediaQueryHeight * 0.02,
+            color: Color(0x00ffffff),
+          ),
+          Container(
+            width: mediaQueryWidth * 0.8,
+            height: mediaQueryHeight * 0.03,
             child: const Text("Password",
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 14,
+                )),
+          ),
+          Container(
+            width: mediaQueryWidth * 0.8,
+            height: mediaQueryHeight * 0.06,
+            // color: Colors.amber,
+            child: TextFormField(
+              obscureText: true,
+              decoration: const InputDecoration(
+                  hintText: "Masukan Password",
+                  prefixIcon: Icon(
+                    Icons.lock,
+                    size: 28,
+                    color: Colors.black,
+                  ),
+                  border: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black))),
+            ),
+          ),
+          Container(
+            height: mediaQueryHeight * 0.02,
+            color: Color(0x00ffffff),
+          ),
+          Container(
+            width: mediaQueryWidth * 0.8,
+            height: mediaQueryHeight * 0.03,
+            child: const Text("Konfirmasi Password",
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   color: Colors.grey,
@@ -106,7 +200,7 @@ class Login extends StatelessWidget {
             ),
           ),
           Container(
-            height: mediaQueryHeight * 0.05,
+            height: mediaQueryHeight * 0.02,
             color: Color(0x00ffffff),
           ),
           SizedBox(
@@ -121,7 +215,7 @@ class Login extends StatelessWidget {
               ),
               onPressed: () {},
               child: const Text(
-                "LOG IN",
+                "REGISTRASI",
                 style: TextStyle(
                   color: Color(0xffffffff),
                 ),

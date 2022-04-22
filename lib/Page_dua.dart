@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:pbm/Login.dart';
+import 'package:pbm/Register.dart';
 
 class PageDua extends StatelessWidget {
   const PageDua({Key? key}) : super(key: key);
@@ -101,7 +102,11 @@ class PageDua extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Register();
+                }));
+              },
               child: const Text(
                 "Registrasi",
                 style: TextStyle(
