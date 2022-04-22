@@ -6,35 +6,40 @@ class PageSatu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var mediaQueryHeight = MediaQuery.of(context).size.height;
+    var mediaQueryWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Column(
         children: [
           Container(
-            width: 395,
-            height: 560,
+            width: mediaQueryWidth * 10,
+            height: mediaQueryHeight * 0.75,
             color: Colors.white,
             child: const Image(
                 fit: BoxFit.cover, image: AssetImage("images/image 1.png")),
           ),
-          const SizedBox(
-            width: 200,
-            height: 60,
-            // color: Colors.white,
-            child: Text(
+          Container(
+            height: mediaQueryHeight * 0.01,
+            color: Color(0x00ffffff),
+          ),
+          Container(
+            height: mediaQueryHeight * 0.05,
+            // color: Colors.amber,
+            child: const Text(
               "G 4 N",
               textAlign: TextAlign.center,
               style: TextStyle(
-                  color: Colors.red,
-                  fontSize: 40,
-                  height: 1.5,
-                  fontWeight: FontWeight.bold),
+                  color: Colors.red, fontSize: 40, fontWeight: FontWeight.bold),
             ),
           ),
-          const SizedBox(
-            width: 300,
-            height: 35,
+          Container(
+            height: mediaQueryHeight * 0.01,
+            color: Color(0x00ffffff),
+          ),
+          Container(
+            height: mediaQueryHeight * 0.04,
             // color: Colors.green,
-            child: Text(
+            child: const Text(
               "Make Your Own Style",
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -43,19 +48,22 @@ class PageSatu extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            width: 300,
-            height: 50,
+          Container(
+            height: mediaQueryHeight * 0.05,
             // color: Colors.red,
-            child: Text(
+            child: const Text(
               "Ciptakan look terbaik dengan nuansa 'Korean Look' sesuai style favoritmu!",
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.blueGrey),
             ),
           ),
+          Container(
+            height: mediaQueryHeight * 0.01,
+            color: Color(0x00ffffff),
+          ),
           SizedBox(
-            width: 200,
-            height: 45,
+            width: mediaQueryWidth * 0.5,
+            height: mediaQueryHeight * 0.05,
             child: TextButton(
               style: TextButton.styleFrom(
                 backgroundColor: const Color(0xffBB5A5A),

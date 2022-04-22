@@ -9,27 +9,27 @@ class PageDua extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var mediaQueryHeight = MediaQuery.of(context).size.height;
+    var mediaQueryWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
-        // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            width: 400,
-            height: 200,
-            // color: Colors.pink,
+          Container(
+            height: mediaQueryHeight * 0.1,
+            color: Color(0x00ffffff),
+          ),
+          Container(
+            width: mediaQueryWidth * 10,
+            height: mediaQueryHeight * 0.1,
             child: const Text("Selamat Datang",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: 40,
-                    height: 6,
                     color: Colors.red,
                     fontWeight: FontWeight.bold)),
           ),
           SizedBox(
-            width: 400,
-            height: 50,
-            // color: Colors.pink,
+            height: mediaQueryHeight * 0.1,
             child: const Text(
                 "G 4 N Menyediakan aneka produk fashion untuk membantu menciptakan style terbaik!",
                 textAlign: TextAlign.center,
@@ -38,28 +38,24 @@ class PageDua extends StatelessWidget {
                     color: Colors.grey,
                     fontWeight: FontWeight.bold)),
           ),
-          const SizedBox(
-            width: 400,
-            height: 250,
-            // color: Colors.white,
-            child: Image(
+          SizedBox(
+            height: mediaQueryHeight * 0.35,
+            child: const Image(
                 fit: BoxFit.fitHeight, image: AssetImage("images/logo.png")),
           ),
-          SizedBox(
-            width: 400,
-            height: 20,
+          Container(
+            height: mediaQueryHeight * 0.04,
             // color: Colors.pink,
             child: const Text("Apakah Anda sudah memiliki akun?",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: 15,
-                    // height: 6,
                     color: Colors.red,
                     fontWeight: FontWeight.bold)),
           ),
           SizedBox(
-            width: 200,
-            height: 45,
+            width: mediaQueryWidth * 0.5,
+            height: mediaQueryHeight * 0.06,
             child: TextButton(
               style: TextButton.styleFrom(
                 backgroundColor: const Color(0xffF3F1F5),
@@ -76,21 +72,23 @@ class PageDua extends StatelessWidget {
               ),
             ),
           ),
+          Container(
+            height: mediaQueryHeight * 0.04,
+            color: Color(0x00ffffff),
+          ),
           SizedBox(
-            width: 400,
-            height: 50,
+            height: mediaQueryHeight * 0.05,
             // color: Colors.pink,
             child: const Text("Apakah Anda sudah memiliki akun?",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: 15,
-                    height: 3,
                     color: Colors.red,
                     fontWeight: FontWeight.bold)),
           ),
           SizedBox(
-            width: 200,
-            height: 45,
+            width: mediaQueryWidth * 0.5,
+            height: mediaQueryHeight * 0.06,
             child: TextButton(
               style: TextButton.styleFrom(
                 backgroundColor: const Color(0xffBB5A5A),
