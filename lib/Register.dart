@@ -1,9 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Register extends StatelessWidget {
+class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
 
+  @override
+  State<Register> createState() => RegisterState();
+}
+
+class RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     var mediaQueryHeight = MediaQuery.of(context).size.height;
@@ -13,11 +18,17 @@ class Register extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            width: mediaQueryWidth * 10,
             height: mediaQueryHeight * 0.25,
-            color: Colors.amber,
-            // child: const Image(
-            //     fit: BoxFit.cover, image: AssetImage("images/Logo.png")),
+            width: mediaQueryWidth * 0.25,
+            decoration: const BoxDecoration(
+                color: Color(0xffBB5A5A), shape: BoxShape.circle),
+            child: const Center(
+              child: Icon(
+                Icons.person,
+                size: 80,
+                color: Colors.white,
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),

@@ -1,9 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 
+  @override
+  State<Login> createState() => LoginState();
+}
+
+class LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     var mediaQueryHeight = MediaQuery.of(context).size.height;
@@ -13,11 +18,17 @@ class Login extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            width: mediaQueryWidth * 10,
-            height: mediaQueryHeight * 0.3,
-            color: Colors.amber,
-            // child: const Image(
-            //     fit: BoxFit.cover, image: AssetImage("images/Logo.png")),
+            height: mediaQueryHeight * 0.35,
+            width: mediaQueryWidth * 0.35,
+            decoration: const BoxDecoration(
+                color: Color(0xffBB5A5A), shape: BoxShape.circle),
+            child: const Center(
+              child: Icon(
+                Icons.person,
+                size: 80,
+                color: Colors.white,
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -29,7 +40,7 @@ class Login extends StatelessWidget {
                 "LOG IN",
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                    color: Colors.red,
+                    color: Color(0xffBB5A5A),
                     fontSize: 24,
                     fontWeight: FontWeight.bold),
               ),
