@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pbm/Home_Page.dart';
+import 'package:pbm/Login.dart';
 import 'package:pbm/Navbar.dart';
 
 class Register extends StatefulWidget {
@@ -232,6 +231,37 @@ class RegisterState extends State<Register> {
                 ),
               ),
             ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                child: const Text(
+                  "Sudah Memiliki Akun?",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontFamily: "Poppins",
+                  ),
+                ),
+              ),
+              Container(
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: ((context) {
+                      return const Login();
+                    })));
+                  },
+                  child: const Text(
+                    "Masuk",
+                    style: TextStyle(
+                      color: Color(0xffEC008D),
+                      fontFamily: "Poppins",
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),

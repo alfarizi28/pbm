@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pbm/Home_Page.dart';
 import 'package:pbm/Navbar.dart';
+import 'package:pbm/Register.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -11,8 +10,8 @@ class Login extends StatefulWidget {
 }
 
 class LoginState extends State<Login> {
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -149,6 +148,37 @@ class LoginState extends State<Login> {
               ),
             ),
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                child: const Text(
+                  "Belum Memiliki Akun?",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontFamily: "Poppins",
+                  ),
+                ),
+              ),
+              Container(
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: ((context) {
+                      return const Register();
+                    })));
+                  },
+                  child: const Text(
+                    "Daftar",
+                    style: TextStyle(
+                      color: Color(0xffEC008D),
+                      fontFamily: "Poppins",
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
@@ -167,17 +197,17 @@ class LoginState extends State<Login> {
     }
 
     AlertDialog alert = AlertDialog(
-      title: Text("Login Berhasil"),
+      title: const Text("Login Berhasil"),
       content: Container(
-        child: Text("Selamat Anda Berhasil Login"),
+        child: const Text("Selamat Anda Berhasil Login"),
       ),
       actions: [
         TextButton(
-            child: Text("Okay"),
+            child: const Text("Okay"),
             onPressed: () {
               Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) {
-                return BtmNavbar();
+                return const BtmNavbar();
               }));
             })
       ],
