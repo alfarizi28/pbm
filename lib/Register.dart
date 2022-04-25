@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pbm/Home_Page.dart';
+import 'package:pbm/Navbar.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -15,21 +17,15 @@ class RegisterState extends State<Register> {
     var mediaQueryWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         children: [
           Container(
-            height: mediaQueryHeight * 0.25,
-            width: mediaQueryWidth * 0.25,
-            decoration: const BoxDecoration(
-                color: Color(0xffBB5A5A), shape: BoxShape.circle),
-            child: const Center(
-              child: Icon(
-                Icons.person,
-                size: 80,
-                color: Colors.white,
-              ),
-            ),
-          ),
+              height: mediaQueryHeight * 0.2,
+              width: mediaQueryWidth * 0.2,
+              child: const Image(
+                image: AssetImage("images/logo.png"),
+              )),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
@@ -224,7 +220,11 @@ class RegisterState extends State<Register> {
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return BtmNavbar();
+                }));
+              },
               child: const Text(
                 "REGISTRASI",
                 style: TextStyle(
