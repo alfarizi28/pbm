@@ -15,11 +15,11 @@ class BtmNavbar extends StatefulWidget {
 class BtmNavbarState extends State<BtmNavbar> {
   int currentIndex = 0;
   final List<Widget> body = [
-    HomePage(),
-    Produk(),
-    Voucher(),
-    Notifikasi(),
-    Profile()
+    const HomePage(),
+    const Produk(),
+    const Voucher(),
+    const Notifikasi(),
+    const Profile()
   ];
 
   @override

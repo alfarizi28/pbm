@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pbm/Alamat.dart';
+import 'package:pbm/Ulasan.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -106,20 +108,26 @@ class _ProfileState extends State<Profile> {
                           Container(
                             child: Row(
                               children: [
-                                const Text("Ubah Profil",
-                                    style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 16,
-                                        color: Color(0xff8B8B8B))),
+                                Container(
+                                    // color: Colors.red,
+                                    height: sizeHeight * 0.05,
+                                    child: TextButton(
+                                      onPressed: () {},
+                                      child: const Text("Ubah Profil",
+                                          style: TextStyle(
+                                              fontFamily: "Poppins",
+                                              fontSize: 16,
+                                              color: Color(0xff8B8B8B))),
+                                    )),
                                 SizedBox(
-                                  width: sizeWidth * 0.41,
+                                  width: sizeWidth * 0.367,
                                 ),
                                 const Text("->",
                                     style: TextStyle(
                                       fontFamily: "Poppins",
                                       fontSize: 30,
                                       color: Color(0xffBB5A5A),
-                                    ))
+                                    )),
                               ],
                             ),
                           ),
@@ -154,13 +162,24 @@ class _ProfileState extends State<Profile> {
                           Container(
                             child: Row(
                               children: [
-                                const Text("Alamat",
-                                    style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 16,
-                                        color: Color(0xff8B8B8B))),
+                                Container(
+                                    height: sizeHeight * 0.05,
+                                    child: TextButton(
+                                      onPressed: () {
+                                        Navigator.push(context,
+                                            MaterialPageRoute(
+                                                builder: ((context) {
+                                          return const Alamat();
+                                        })));
+                                      },
+                                      child: const Text("Alamat",
+                                          style: TextStyle(
+                                              fontFamily: "Poppins",
+                                              fontSize: 16,
+                                              color: Color(0xff8B8B8B))),
+                                    )),
                                 SizedBox(
-                                  width: sizeWidth * 0.48,
+                                  width: sizeWidth * 0.43,
                                 ),
                                 const Text("->",
                                     style: TextStyle(
@@ -214,13 +233,18 @@ class _ProfileState extends State<Profile> {
                           Container(
                             child: Row(
                               children: [
-                                const Text("Pesanan",
-                                    style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 16,
-                                        color: Color(0xff8B8B8B))),
+                                Container(
+                                    height: sizeHeight * 0.05,
+                                    child: TextButton(
+                                      onPressed: () {},
+                                      child: const Text("Pesanan",
+                                          style: TextStyle(
+                                              fontFamily: "Poppins",
+                                              fontSize: 16,
+                                              color: Color(0xff8B8B8B))),
+                                    )),
                                 SizedBox(
-                                  width: sizeWidth * 0.45,
+                                  width: sizeWidth * 0.41,
                                 ),
                                 const Text("->",
                                     style: TextStyle(
@@ -262,13 +286,18 @@ class _ProfileState extends State<Profile> {
                           Container(
                             child: Row(
                               children: [
-                                const Text("Dikemas",
-                                    style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 16,
-                                        color: Color(0xff8B8B8B))),
+                                Container(
+                                    height: sizeHeight * 0.05,
+                                    child: TextButton(
+                                      onPressed: () {},
+                                      child: const Text("Dikemas",
+                                          style: TextStyle(
+                                              fontFamily: "Poppins",
+                                              fontSize: 16,
+                                              color: Color(0xff8B8B8B))),
+                                    )),
                                 SizedBox(
-                                  width: sizeWidth * 0.45,
+                                  width: sizeWidth * 0.4,
                                 ),
                                 const Text("->",
                                     style: TextStyle(
@@ -310,13 +339,18 @@ class _ProfileState extends State<Profile> {
                           Container(
                             child: Row(
                               children: [
-                                const Text("Dikirim",
-                                    style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 16,
-                                        color: Color(0xff8B8B8B))),
+                                Container(
+                                    height: sizeHeight * 0.05,
+                                    child: TextButton(
+                                      onPressed: () {},
+                                      child: const Text("Dikirim",
+                                          style: TextStyle(
+                                              fontFamily: "Poppins",
+                                              fontSize: 16,
+                                              color: Color(0xff8B8B8B))),
+                                    )),
                                 SizedBox(
-                                  width: sizeWidth * 0.47,
+                                  width: sizeWidth * 0.43,
                                 ),
                                 const Text("->",
                                     style: TextStyle(
@@ -358,13 +392,24 @@ class _ProfileState extends State<Profile> {
                           Container(
                             child: Row(
                               children: [
-                                const Text("Beri Penilaian",
-                                    style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 16,
-                                        color: Color(0xff8B8B8B))),
+                                Container(
+                                    height: sizeHeight * 0.05,
+                                    child: TextButton(
+                                      onPressed: () {
+                                        Navigator.push(context,
+                                            MaterialPageRoute(
+                                                builder: ((context) {
+                                          return Ulasan();
+                                        })));
+                                      },
+                                      child: const Text("Beri Penilaian",
+                                          style: TextStyle(
+                                              fontFamily: "Poppins",
+                                              fontSize: 16,
+                                              color: Color(0xff8B8B8B))),
+                                    )),
                                 SizedBox(
-                                  width: sizeWidth * 0.35,
+                                  width: sizeWidth * 0.3,
                                 ),
                                 const Text("->",
                                     style: TextStyle(
@@ -418,13 +463,18 @@ class _ProfileState extends State<Profile> {
                           Container(
                             child: Row(
                               children: [
-                                Text("Cara Pembayaran",
-                                    style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 16,
-                                        color: Color(0xffBB5A5A))),
+                                Container(
+                                    height: sizeHeight * 0.05,
+                                    child: TextButton(
+                                      onPressed: () {},
+                                      child: const Text("Cara Pembayaran",
+                                          style: TextStyle(
+                                              fontFamily: "Poppins",
+                                              fontSize: 16,
+                                              color: Color(0xff8B8B8B))),
+                                    )),
                                 SizedBox(
-                                  width: sizeWidth * 0.29,
+                                  width: sizeWidth * 0.22,
                                 ),
                                 Text("->",
                                     style: TextStyle(
@@ -466,13 +516,18 @@ class _ProfileState extends State<Profile> {
                           Container(
                             child: Row(
                               children: [
-                                Text("Nilai Kami",
-                                    style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 16,
-                                        color: Color(0xffBB5A5A))),
+                                Container(
+                                    height: sizeHeight * 0.05,
+                                    child: TextButton(
+                                      onPressed: () {},
+                                      child: const Text("Nilai Kami",
+                                          style: TextStyle(
+                                              fontFamily: "Poppins",
+                                              fontSize: 16,
+                                              color: Color(0xff8B8B8B))),
+                                    )),
                                 SizedBox(
-                                  width: sizeWidth * 0.42,
+                                  width: sizeWidth * 0.35,
                                 ),
                                 Text("->",
                                     style: TextStyle(
@@ -514,13 +569,18 @@ class _ProfileState extends State<Profile> {
                           Container(
                             child: Row(
                               children: [
-                                const Text("Keluar",
-                                    style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 16,
-                                        color: Color(0xff8B8B8B))),
+                                Container(
+                                    height: sizeHeight * 0.05,
+                                    child: TextButton(
+                                      onPressed: () {},
+                                      child: const Text("Keluar",
+                                          style: TextStyle(
+                                              fontFamily: "Poppins",
+                                              fontSize: 16,
+                                              color: Color(0xff8B8B8B))),
+                                    )),
                                 SizedBox(
-                                  width: sizeWidth * 0.49,
+                                  width: sizeWidth * 0.41,
                                 ),
                                 const Text("->",
                                     style: TextStyle(
