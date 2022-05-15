@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'dart:io';
+// import 'dart:async';
+// import 'package:camera/camera.dart';
+// import 'package:pbm/Camera_Page.dart';
 
 class Ulasan extends StatefulWidget {
   const Ulasan({Key? key}) : super(key: key);
@@ -9,6 +13,9 @@ class Ulasan extends StatefulWidget {
 }
 
 class _UlasanState extends State<Ulasan> {
+  // ignore: non_constant_identifier_names
+  // late File ImageFile;
+
   @override
   Widget build(BuildContext context) {
     final sizeHeight = MediaQuery.of(context).size.height;
@@ -99,8 +106,84 @@ class _UlasanState extends State<Ulasan> {
             width: sizeWidth * 0.9,
             height: sizeHeight * 0.2,
             color: Color(0xffF3F1F5),
+            // child: (ImageFile == null) ? SizedBox() : Image.file(ImageFile),
           ),
-          Container()
+          Container(
+            margin: const EdgeInsets.only(top: 5),
+            width: sizeWidth * 0.5,
+            child: TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: const Color(0xffBB5A5A),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
+                onPressed: () async {},
+                // {
+                //   ImageFile = (await Navigator.push<File>(context,
+                //       MaterialPageRoute(builder: (_) => const CameraPage())))!;
+                // },
+                child: const Text(
+                  "Tambahkan Foto",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: Colors.white),
+                )),
+          ),
+          Container(
+            width: sizeWidth * 10,
+            margin: const EdgeInsets.only(top: 20, left: 10),
+            child: const Text(
+              "Komentar",
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                  fontFamily: "Poppins",
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: Color(0xff7D7676)),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextFormField(
+              decoration: InputDecoration(
+                  hintText: "Beri Komentar",
+                  border: OutlineInputBorder(),
+                  fillColor: Color(0xffF3F1F5),
+                  filled: true,
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5),
+                      borderSide: BorderSide(color: Color(0xffF3F1F5))),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    borderSide: BorderSide(color: Color(0xffF3F1F5)),
+                  )),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 80),
+            width: sizeWidth * 0.8,
+            child: TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: const Color(0xffBB5A5A),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
+                onPressed: () async {},
+                child: const Text(
+                  "Submit",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: Colors.white),
+                )),
+          ),
         ],
       )),
     );

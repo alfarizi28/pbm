@@ -28,6 +28,8 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   flutter_rating_bar: ^4.0.0
+  # camera: ^0.5.8+11
+  # path_provider: ^1.6.22
   flutter:
     sdk: flutter
 

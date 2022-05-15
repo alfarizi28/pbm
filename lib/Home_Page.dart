@@ -71,7 +71,6 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
-                obscureText: true,
                 decoration: InputDecoration(
                     hintText: "Cari sesuatu yang kamu butuhkan",
                     prefixIcon: const Icon(
