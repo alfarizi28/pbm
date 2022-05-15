@@ -100,6 +100,7 @@ class _UlasanState extends State<Ulasan> {
             height: sizeHeight * 0.2,
             color: Color(0xffF3F1F5),
           ),
+          Container()
         ],
       )),
     );
