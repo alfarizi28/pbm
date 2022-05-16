@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 // import 'dart:async';
 // import 'package:camera/camera.dart';
 // import 'package:pbm/Camera_Page.dart';
@@ -13,8 +14,67 @@ class Ulasan extends StatefulWidget {
 }
 
 class _UlasanState extends State<Ulasan> {
-  // ignore: non_constant_identifier_names
-  // late File ImageFile;
+  File? ImageFile;
+
+  void _showSimpleDialog(context) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return SimpleDialog(
+            children: [
+              Text(
+                "Buka Dengan",
+                style: TextStyle(fontSize: 18, color: Colors.black),
+                textAlign: TextAlign.center,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context, true);
+                  aksesCamera();
+                },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                ),
+                child: Text("Kamera",
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 12,
+                        color: Colors.black)),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context, true);
+                  aksesGaleri();
+                },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                ),
+                child: Text("Galeri",
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 12,
+                        color: Colors.black)),
+              )
+            ],
+          );
+        });
+  }
+
+  aksesCamera() async {
+    final ImagePicker _picker = ImagePicker();
+    final XFile? img = await _picker.pickImage(source: ImageSource.camera);
+
+    ImageFile = File(img!.path);
+    setState(() {});
+  }
+
+  aksesGaleri() async {
+    final ImagePicker _picker = ImagePicker();
+    final XFile? img = await _picker.pickImage(source: ImageSource.gallery);
+
+    ImageFile = File(img!.path);
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +166,7 @@ class _UlasanState extends State<Ulasan> {
             width: sizeWidth * 0.9,
             height: sizeHeight * 0.2,
             color: Color(0xffF3F1F5),
-            // child: (ImageFile == null) ? SizedBox() : Image.file(ImageFile),
+            child: ImageFile == null ? SizedBox() : Image.file(ImageFile!),
           ),
           Container(
             margin: const EdgeInsets.only(top: 5),
@@ -118,11 +178,9 @@ class _UlasanState extends State<Ulasan> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
-                onPressed: () async {},
-                // {
-                //   ImageFile = (await Navigator.push<File>(context,
-                //       MaterialPageRoute(builder: (_) => const CameraPage())))!;
-                // },
+                onPressed: () async {
+                  _showSimpleDialog(context);
+                },
                 child: const Text(
                   "Tambahkan Foto",
                   textAlign: TextAlign.center,
