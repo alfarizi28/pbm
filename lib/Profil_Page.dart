@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pbm/Alamat.dart';
 import 'package:pbm/Ulasan.dart';
 
+import 'detailprofil.dart';
+
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
 
@@ -112,7 +114,13 @@ class _ProfileState extends State<Profile> {
                                     // color: Colors.red,
                                     height: sizeHeight * 0.05,
                                     child: TextButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.push(context,
+                                            MaterialPageRoute(
+                                                builder: ((context) {
+                                          return editProfile();
+                                        })));
+                                      },
                                       child: const Text("Ubah Profil",
                                           style: TextStyle(
                                               fontFamily: "Poppins",

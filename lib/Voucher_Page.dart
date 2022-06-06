@@ -13,6 +13,7 @@ class _VoucherState extends State<Voucher> {
     final sizeHeight = MediaQuery.of(context).size.height;
     final sizeWidth = MediaQuery.of(context).size.width;
     final myAppBar = AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: const Color(0xffBB5A5A),
       elevation: 0,
       centerTitle: false,
