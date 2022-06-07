@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pbm/Navbar.dart';
 import 'package:pbm/Register.dart';
@@ -130,11 +131,9 @@ class LoginState extends State<Login> {
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
-              onPressed: () => submit(
-                context,
-                _emailController.text,
-                _passwordController.text,
-              ),
+              onPressed: () {
+                _doLogin();
+              },
               //          {
               //   Navigator.push(context, MaterialPageRoute(builder: (context) {
               //     return BtmNavbar();
@@ -184,35 +183,76 @@ class LoginState extends State<Login> {
     );
   }
 
-  void submit(BuildContext context, String email, String password) {
-    if (email.isEmpty || password.isEmpty) {
-      final snackBar = SnackBar(
-        duration: const Duration(seconds: 5),
-        content: Text("Email dan Password harus diisi"),
-        backgroundColor: Colors.red,
+  _doLogin() async {
+    try {
+      var email = _emailController.text;
+      var passs = _passwordController.text;
+
+      print('sedang login');
+      var res = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: passs,
       );
 
+      print('Hasil Login : ');
+      print(res);
+
+      final snackBar = SnackBar(
+        duration: const Duration(seconds: 5),
+        content: Text("Berhasil Login"),
+        backgroundColor: Colors.green,
+      );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
-      return;
+
+      Navigator.push(context, MaterialPageRoute(builder: (_) {
+        return BtmNavbar();
+      }));
+    } catch (e) {
+      print('exception login');
+      print(e.runtimeType);
+      if (e is FirebaseAuthException) {
+        print(e);
+        print(e.message);
+      }
+
+      final snackBar = SnackBar(
+        duration: const Duration(seconds: 5),
+        content: Text("Email atau Password Salah"),
+        backgroundColor: Colors.red,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
-
-    AlertDialog alert = AlertDialog(
-      title: const Text("Login Berhasil"),
-      content: Container(
-        child: const Text("Selamat Anda Berhasil Login"),
-      ),
-      actions: [
-        TextButton(
-            child: const Text("Okay"),
-            onPressed: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) {
-                return const BtmNavbar();
-              }));
-            })
-      ],
-    );
-
-    showDialog(context: context, builder: (context) => alert);
   }
+
+  // void submit(BuildContext context, String email, String password) {
+  //   if (email.isEmpty || password.isEmpty) {
+  //     final snackBar = SnackBar(
+  //       duration: const Duration(seconds: 5),
+  //       content: Text("Email dan Password harus diisi"),
+  //       backgroundColor: Colors.red,
+  //     );
+
+  //     ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  //     return;
+  //   }
+
+  //   AlertDialog alert = AlertDialog(
+  //     title: const Text("Login Berhasil"),
+  //     content: Container(
+  //       child: const Text("Selamat Anda Berhasil Login"),
+  //     ),
+  //     actions: [
+  //       TextButton(
+  //           child: const Text("Okay"),
+  //           onPressed: () {
+  //             Navigator.pushReplacement(context,
+  //                 MaterialPageRoute(builder: (context) {
+  //               return const BtmNavbar();
+  //             }));
+  //           })
+  //     ],
+  //   );
+
+  //   showDialog(context: context, builder: (context) => alert);
+  // }
 }

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pbm/Login.dart';
 import 'package:pbm/Navbar.dart';
@@ -10,6 +11,9 @@ class Register extends StatefulWidget {
 }
 
 class RegisterState extends State<Register> {
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var mediaQueryHeight = MediaQuery.of(context).size.height;
@@ -98,6 +102,7 @@ class RegisterState extends State<Register> {
             height: mediaQueryHeight * 0.06,
             // color: Colors.amber,
             child: TextFormField(
+              controller: _emailController,
               decoration: const InputDecoration(
                   hintText: "Masukan Email",
                   prefixIcon: Icon(
@@ -160,6 +165,7 @@ class RegisterState extends State<Register> {
             height: mediaQueryHeight * 0.06,
             // color: Colors.amber,
             child: TextFormField(
+              controller: _passwordController,
               obscureText: true,
               decoration: const InputDecoration(
                   hintText: "Masukan Password",
@@ -220,9 +226,7 @@ class RegisterState extends State<Register> {
                 ),
               ),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return BtmNavbar();
-                }));
+                _doSignUp();
               },
               child: const Text(
                 "REGISTRASI",
@@ -266,5 +270,46 @@ class RegisterState extends State<Register> {
         ],
       ),
     );
+  }
+
+  _doSignUp() async {
+    try {
+      var email = _emailController.text;
+      var passs = _passwordController.text;
+
+      print('sedang daftar');
+      var res = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: passs,
+      );
+
+      print('Hasil Daftar : ');
+      print(res);
+
+      final snackBar = SnackBar(
+        duration: const Duration(seconds: 5),
+        content: Text("Registrasi Berhasil, Silakan Login"),
+        backgroundColor: Colors.green,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+      Navigator.push(context, MaterialPageRoute(builder: (_) {
+        return Login();
+      }));
+    } catch (e) {
+      print('exception daftar');
+      print(e.runtimeType);
+      if (e is FirebaseAuthException) {
+        print(e);
+        print(e.message);
+      }
+
+      final snackBar = SnackBar(
+        duration: const Duration(seconds: 5),
+        content: Text("Email atau Password Salah"),
+        backgroundColor: Colors.red,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
   }
 }
