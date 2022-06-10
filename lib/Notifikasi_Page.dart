@@ -9,6 +9,8 @@ class Notifikasi extends StatefulWidget {
 }
 
 class _NotifikasiState extends State<Notifikasi> {
+late DateTime _dateTime;
+
   @override
 Widget build(BuildContext context) {
     final sizeHeight = MediaQuery.of(context).size.height;
@@ -57,6 +59,49 @@ Widget build(BuildContext context) {
     final bodyHeight = sizeHeight -
         myAppBar.preferredSize.height -
         MediaQuery.of(context).padding.top;
-    return Scaffold(appBar: myAppBar, body: Container());
+    return Scaffold(appBar: myAppBar, body: Column(
+      children: [
+        Container(
+          child: Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 10,top: 25),
+                // color: Colors.amber,
+                height: sizeHeight *0.1,
+                width: sizeWidth *0.5,
+                child: Text(
+                  'Status Pemesanan',textAlign: TextAlign.left,style: TextStyle(color: Colors.red,fontSize: 20),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 25,left: 50),
+                // color: Colors.amber,
+                      child: TextButton(
+                        onPressed: () {
+                          showDatePicker(
+                                  context: context,
+                                  initialDate: DateTime.now(),
+                                  firstDate: DateTime(2001),
+                                  lastDate: DateTime(2222))
+                              .then((date) {
+                            setState(() {
+                              _dateTime = date!;
+                            });
+                          });
+                        },
+                        child: Text(
+                          "Pilih Tanggal",
+                          style: TextStyle(
+                              fontFamily: "Poppins",
+                              color: Colors.grey,
+                              fontSize: 15),
+                        ),
+                      ),
+                    )
+            ],
+          ),
+        )
+      ],
+    ));
   }
 }
