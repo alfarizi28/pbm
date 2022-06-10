@@ -36,7 +36,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
-  cloud_firestore:
+    cloud_firestore:
     dependency: "direct main"
     description:
       name: cloud_firestore
@@ -85,7 +85,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
-  firebase_auth:
+    firebase_auth:
     dependency: "direct main"
     description:
       name: firebase_auth
@@ -226,7 +226,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.5.0"
-  intl:
+     intl:
     dependency: transitive
     description:
       name: intl
