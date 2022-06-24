@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pbm/Alamat.dart';
+import 'package:pbm/Keranjang.dart';
 import 'package:pbm/Ulasan.dart';
 import 'package:pbm/chat.dart';
 
@@ -57,7 +58,10 @@ class _ProfileState extends State<Profile> {
           height: sizeHeight * 0.1,
           width: sizeWidth * 0.2,
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {Navigator.push(context,
+                        MaterialPageRoute(builder: ((context) {
+                      return const PageKeranjang();
+                    })));},
             icon: const Icon(
               Icons.shopping_cart_outlined,
               size: 36,

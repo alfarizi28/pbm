@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pbm/Keranjang.dart';
 import 'package:pbm/chat.dart';
 
 class Notifikasi extends StatefulWidget {
@@ -48,7 +49,10 @@ Widget build(BuildContext context) {
           height: sizeHeight * 0.1,
           width: sizeWidth * 0.2,
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {Navigator.push(context,
+                        MaterialPageRoute(builder: ((context) {
+                      return const PageKeranjang();
+                    })));},
             icon: const Icon(
               Icons.shopping_cart_outlined,
               size: 36,
