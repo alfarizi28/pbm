@@ -40,13 +40,13 @@ class BtmNavbarState extends State<BtmNavbar> {
               activeIcon: Icon(Icons.home, color: Color(0xffBB5A5A), size: 30)),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.schedule_outlined,
+                Icons.crop_square,
                 color: Color(0xffBB5A5A),
                 size: 30,
               ),
               label: 'Produk',
               activeIcon:
-                  Icon(Icons.schedule, color: Color(0xffBB5A5A), size: 30)),
+                  Icon(Icons.square, color: Color(0xffBB5A5A), size: 30)),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.description_outlined,

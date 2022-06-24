@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:pbm/TryAdd.dart';
+import 'package:pbm/chat.dart';
 
 class Voucher extends StatefulWidget {
   const Voucher({Key? key}) : super(key: key);
@@ -53,7 +54,10 @@ class _VoucherState extends State<Voucher> {
           height: sizeHeight * 0.1,
           width: sizeWidth * 0.2,
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {Navigator.push(context,
+                        MaterialPageRoute(builder: ((context) {
+                      return const PageChat();
+                    })));},
             icon: const Icon(
               Icons.chat_bubble_outline,
               size: 36,

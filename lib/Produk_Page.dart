@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pbm/chat.dart';
 
 class Produk extends StatefulWidget {
   const Produk({Key? key}) : super(key: key);
@@ -29,7 +30,10 @@ Widget build(BuildContext context) {
           height: sizeHeight * 0.1,
           width: sizeWidth * 0.2,
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {Navigator.push(context,
+                        MaterialPageRoute(builder: ((context) {
+                      return const PageChat();
+                    })));},
             icon: const Icon(
               Icons.chat_bubble_outline,
               size: 36,
